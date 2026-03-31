@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    /* Deep space dark with purple/indigo tint */
+    --background: 0.09 0.02 270;
+    --foreground: 0.96 0.005 240;
+    --card: 0.13 0.025 280;
+    --card-foreground: 0.96 0.005 240;
+    --popover: 0.15 0.025 275;
+    --popover-foreground: 0.96 0.005 240;
+    --primary: 0.65 0.22 35;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.16 0.022 275;
+    --secondary-foreground: 0.96 0.005 240;
+    --muted: 0.16 0.022 275;
+    --muted-foreground: 0.58 0.015 255;
+    --accent: 0.18 0.022 270;
+    --accent-foreground: 0.96 0.005 240;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.21 0.02 270;
+    --input: 0.21 0.02 270;
+    --ring: 0.65 0.22 35;
+    --chart-1: 0.8 0.18 75;
+    --chart-2: 0.65 0.22 280;
+    --chart-3: 0.7 0.16 185;
+    --chart-4: 0.65 0.22 15;
+    --chart-5: 0.65 0.22 35;
+    --sidebar: 0.13 0.025 280;
+    --sidebar-foreground: 0.96 0.005 240;
+    --sidebar-primary: 0.65 0.22 35;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.16 0.022 275;
+    --sidebar-accent-foreground: 0.96 0.005 240;
+    --sidebar-border: 0.21 0.02 270;
+    --sidebar-ring: 0.65 0.22 35;
+    /* Accent palette */
+    --color-teal: oklch(0.7 0.16 185);
+    --color-green: oklch(0.72 0.2 150);
+    --color-violet: oklch(0.65 0.22 280);
+    --color-amber: oklch(0.8 0.18 75);
+    --color-rose: oklch(0.65 0.22 15);
+    --color-orange: oklch(0.65 0.22 35);
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-jakarta antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: oklch(0.13 0.025 280 / 0.75);
+    border: 1px solid oklch(0.25 0.025 270 / 0.5);
+  }
+  .card-surface {
+    background: linear-gradient(
+      135deg,
+      oklch(0.14 0.025 280),
+      oklch(0.12 0.02 260)
+    );
+    border: 1px solid oklch(0.21 0.02 270);
+    border-radius: var(--radius);
+  }
+  .card-amber {
+    background: linear-gradient(
+      135deg,
+      oklch(0.15 0.04 60 / 0.6),
+      oklch(0.12 0.02 260)
+    );
+    border: 1px solid oklch(0.8 0.18 75 / 0.25);
+    border-radius: var(--radius);
+  }
+  .card-violet {
+    background: linear-gradient(
+      135deg,
+      oklch(0.15 0.05 280 / 0.6),
+      oklch(0.12 0.02 260)
+    );
+    border: 1px solid oklch(0.65 0.22 280 / 0.25);
+    border-radius: var(--radius);
+  }
+  .card-teal {
+    background: linear-gradient(
+      135deg,
+      oklch(0.14 0.04 185 / 0.6),
+      oklch(0.12 0.02 260)
+    );
+    border: 1px solid oklch(0.7 0.16 185 / 0.25);
+    border-radius: var(--radius);
+  }
+  .card-green {
+    background: linear-gradient(
+      135deg,
+      oklch(0.14 0.05 150 / 0.6),
+      oklch(0.12 0.02 260)
+    );
+    border: 1px solid oklch(0.72 0.2 150 / 0.25);
+    border-radius: var(--radius);
+  }
+  .card-rose {
+    background: linear-gradient(
+      135deg,
+      oklch(0.14 0.05 15 / 0.6),
+      oklch(0.12 0.02 260)
+    );
+    border: 1px solid oklch(0.65 0.22 15 / 0.25);
+    border-radius: var(--radius);
+  }
+  .orange-glow {
+    box-shadow: 0 0 24px oklch(0.65 0.22 35 / 0.3);
+  }
+  .glow-teal {
+    box-shadow: 0 0 20px oklch(0.7 0.16 185 / 0.3);
+  }
+  .glow-green {
+    box-shadow: 0 0 20px oklch(0.72 0.2 150 / 0.3);
+  }
+  .glow-violet {
+    box-shadow: 0 0 20px oklch(0.65 0.22 280 / 0.3);
+  }
+  .glow-amber {
+    box-shadow: 0 0 20px oklch(0.8 0.18 75 / 0.3);
+  }
+  .text-secondary-custom {
+    color: oklch(0.77 0.012 240);
+  }
+  .text-muted-custom {
+    color: oklch(0.58 0.015 255);
+  }
+  .streak-ring {
+    box-shadow: 0 0 0 3px oklch(0.8 0.18 75 / 0.4), 0 0 20px
+      oklch(0.65 0.22 35 / 0.5);
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      oklch(0.8 0.18 75),
+      oklch(0.65 0.22 35),
+      oklch(0.8 0.18 75)
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+}
